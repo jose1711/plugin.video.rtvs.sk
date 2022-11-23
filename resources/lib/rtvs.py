@@ -489,6 +489,7 @@ class RtvsContentProvider(ContentProvider):
                 item['title'] = m.group('title')[:semicolon].strip()
             else:
                 item['title'] = m.group('title')
+            item['title'] += " (%s %s)" % (m.group('date').strip(), m.group('time'))
             item['img'] = self._fix_url(m.group('img'))
             item['url'] = m.group('url')
             self._filter(result, item)
@@ -710,4 +711,4 @@ class RtvsContentProvider(ContentProvider):
             pages.append([page, args])
         return pages
 
-  
+
